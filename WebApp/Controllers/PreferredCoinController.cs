@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using WebApp.Model;
 using WebApp.Service;
 
-namespace WebAPI.Controllers
+namespace WebApp.Controllers
 {
     [Route("api/[controller]")]
     public class PreferredCoinController : Controller

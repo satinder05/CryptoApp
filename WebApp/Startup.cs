@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using WebApp.Common.Middleware;
 using WebApp.Common.Swagger;
 
 namespace WebApp
@@ -67,6 +68,8 @@ namespace WebApp
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+
+            app.UseMiddleware(typeof(ExceptionHandlerMiddleware));
 
             app.UseEndpoints(endpoints =>
             {
