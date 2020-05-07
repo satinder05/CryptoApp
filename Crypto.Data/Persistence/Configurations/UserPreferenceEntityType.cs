@@ -1,8 +1,8 @@
-﻿using WebAPI.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Crypto.Data.Entities;
 
-namespace WebAPI.Persistence.Configurations
+namespace Crypto.Data.Persistence.Configurations
 {
     public class UserPreferenceEntityType : IEntityTypeConfiguration<UserPreference>
     {

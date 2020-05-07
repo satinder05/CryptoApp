@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
+using Crypto.Data.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebAPI.Model;
-using WebAPI.Persistence;
 using WebAPI.Service;
 
 namespace WebAPI.Controllers

@@ -1,4 +1,4 @@
-﻿namespace WebAPI.Model
+﻿namespace Crypto.Data.Entities
 {
     public class UserPreference
     {

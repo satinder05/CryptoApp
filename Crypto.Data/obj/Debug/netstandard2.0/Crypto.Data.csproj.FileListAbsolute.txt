@@ -1,0 +1,9 @@
+C:\GitHub\CryptoApp\Crypto.Data\bin\Debug\netstandard2.0\Crypto.Data.deps.json
+C:\GitHub\CryptoApp\Crypto.Data\bin\Debug\netstandard2.0\Crypto.Data.dll
+C:\GitHub\CryptoApp\Crypto.Data\obj\Debug\netstandard2.0\Crypto.Data.csprojAssemblyReference.cache
+C:\GitHub\CryptoApp\Crypto.Data\obj\Debug\netstandard2.0\Crypto.Data.AssemblyInfoInputs.cache
+C:\GitHub\CryptoApp\Crypto.Data\obj\Debug\netstandard2.0\Crypto.Data.AssemblyInfo.cs
+C:\GitHub\CryptoApp\Crypto.Data\bin\Debug\netstandard2.0\Crypto.Data.pdb
+C:\GitHub\CryptoApp\Crypto.Data\obj\Debug\netstandard2.0\Crypto.Data.csproj.CoreCompileInputs.cache
+C:\GitHub\CryptoApp\Crypto.Data\obj\Debug\netstandard2.0\Crypto.Data.dll
+C:\GitHub\CryptoApp\Crypto.Data\obj\Debug\netstandard2.0\Crypto.Data.pdb

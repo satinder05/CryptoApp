@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Crypto.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using WebAPI.Model;
-using WebAPI.Persistence.Configurations;
+using Crypto.Data.Persistence.Configurations;
 
-namespace WebAPI.Persistence
+namespace Crypto.Data.Persistence
 {
     public class CryptoDbContext : DbContext
     {

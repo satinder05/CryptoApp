@@ -134,3 +134,5 @@ C:\GitHub\CryptoApp\WebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagge
 C:\GitHub\CryptoApp\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csproj.CoreCompileInputs.cache
 C:\GitHub\CryptoApp\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\GitHub\CryptoApp\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\GitHub\CryptoApp\WebAPI\bin\Debug\netcoreapp3.1\Crypto.Data.dll
+C:\GitHub\CryptoApp\WebAPI\bin\Debug\netcoreapp3.1\Crypto.Data.pdb

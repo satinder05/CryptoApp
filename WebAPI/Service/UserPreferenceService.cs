@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Crypto.Data.Entities;
+using Crypto.Data.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
-using WebAPI.Model;
-using WebAPI.Persistence;
 
 namespace WebAPI.Service
 {

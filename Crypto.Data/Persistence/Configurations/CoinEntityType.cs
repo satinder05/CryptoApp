@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Crypto.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WebAPI.Model;
 
-namespace WebAPI.Persistence.Configurations
+namespace Crypto.Data.Persistence.Configurations
 {
     public class CoinEntityType : IEntityTypeConfiguration<Coin>
     {
