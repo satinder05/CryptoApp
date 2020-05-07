@@ -39,20 +39,20 @@ export class PreferredCoin extends Component {
 
     
     async getPreferredCoin() {
-        const response = await fetch('http://localhost:54505/api/PreferredCoin');
+        const response = await fetch('api/PreferredCoin');
         const data = await response.json();
         this.setState({ preferredCoin: data });
     }
 
     async getTradeData() {
-        const response = await fetch('http://localhost:54505/api/PreferredCoin/TradeData');
+        const response = await fetch('api/PreferredCoin/TradeData');
         const data = await response.json();
         this.setState({ tradeData: data, isLoaded: true  });
         console.log(data);        
     }
 
     async savePreferredCoin(preferredCoin) {
-        let response = await fetch('http://localhost:54505/api/PreferredCoin', {
+        let response = await fetch('api/PreferredCoin', {
             method: 'POST',
             headers: {
                 "Content-type": "application/json charset=utf-8"
