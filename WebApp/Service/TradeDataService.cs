@@ -5,8 +5,8 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
+using WebApp.Common.Helper;
 using WebApp.Model;
 
 namespace WebApp.Service
@@ -27,7 +27,7 @@ namespace WebApp.Service
             try
             {
                 var coin = await _context.Coins.FindAsync(coinId);
-                JObject jsonResponse = await GetJsonResponse("https://trade.cointree.com/api/prices/aud/" + coin.Symbol);
+                JObject jsonResponse = await HttpClientHelper.GetJsonResponse("https://trade.cointree.com/api/prices/aud/" + coin.Symbol);
 
                 var newAskPrice = Convert.ToDecimal(jsonResponse["ask"]);
                 var oldPrice = await SaveAskPrice(coinId, newAskPrice);
@@ -75,15 +75,6 @@ namespace WebApp.Service
             await _context.SaveChangesAsync();
             return oldAskPrice;
         }
-
-        private async Task<JObject> GetJsonResponse(string requestUri)
-        {
-            using var client = new HttpClient();
-            var response = await client.GetAsync(requestUri);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            JObject jObject= JObject.Parse(responseBody);
-            return jObject;
-        }
+        
     }
 }

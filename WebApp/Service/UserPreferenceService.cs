@@ -31,6 +31,7 @@ namespace WebApp.Service
             catch(Exception exception)
             {
                 _logger.LogWarning(exception, "Error fetching user preferred coin at {RequestTime}", DateTime.Now);
+                throw exception;
             }
             return preferredCoinId;
         }
