@@ -7,7 +7,8 @@ export class PreferredCoin extends Component {
         this.state = {
             preferredCoin: 1,
             isLoaded: false,
-            tradeData:[]
+            tradeData: [],
+            coinList:[]
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -26,18 +27,41 @@ export class PreferredCoin extends Component {
         this.savePreferredCoin(parseInt(this.state.preferredCoin))
     }
 
-    clearTradeData() {
-        this.setState({
-            isLoaded: false
-        });
+    componentWillMount() {
+        this.getCoinList();
     }
-
-    componentDidMount() {
+        
+    componentDidMount() {        
         this.getPreferredCoin();
         this.getTradeData();
     }
 
     
+    render() {
+        let tradeContent = !this.state.isLoaded
+            ? <p><em>Loading...</em></p>
+            : <TradeData price={this.state.tradeData.ask} percentChange={this.state.tradeData.askPriceChangePercent} />;
+        return(
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                        <label>Preferred Coin</label>
+                        <select style={{width:'13%'}} className="form-control" id="preferredCoin" name="preferredCoin" value={this.state.preferredCoin} onChange={this.handleChange}>
+                            {
+                                this.state.coinList.map((obj) => {
+                                    return <option value={obj.id}>{obj.symbol}</option>
+                                })
+                            }
+                        </select>
+                        <input type="submit" value="Save Prefeference" />
+                    </div>
+                </form>
+                <hr />
+                {tradeContent}
+            </div>
+            );
+    }
+
     async getPreferredCoin() {
         const response = await fetch('api/PreferredCoin');
         const data = await response.json();
@@ -47,8 +71,7 @@ export class PreferredCoin extends Component {
     async getTradeData() {
         const response = await fetch('api/PreferredCoin/TradeData');
         const data = await response.json();
-        this.setState({ tradeData: data, isLoaded: true  });
-        console.log(data);        
+        this.setState({ tradeData: data, isLoaded: true });
     }
 
     async savePreferredCoin(preferredCoin) {
@@ -63,27 +86,15 @@ export class PreferredCoin extends Component {
         this.getTradeData();
     }
 
+    async getCoinList() {
+        const response = await fetch('api/Coins');
+        const data = await response.json();
+        this.setState({ coinList: data });
+    }
 
-    render() {
-        let tradeContent = !this.state.isLoaded
-            ? <p><em>Loading...</em></p>
-            : <TradeData price={this.state.tradeData.ask} percentChange={this.state.tradeData.askPriceChangePercent} />;
-        return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Preferred Coin</label>
-                        <select style={{width:'13%'}} className="form-control" id="preferredCoin" name="preferredCoin" value={this.state.preferredCoin} onChange={this.handleChange}>
-                            <option value="1">BTC</option>
-                            <option value="2">ETH</option>
-                            <option value="3">XRP</option>
-                        </select>
-                        <input type="submit" value="Save Prefeference" />
-                    </div>
-                </form>
-                <hr />
-                {tradeContent}
-            </div>
-            );
+    clearTradeData() {
+        this.setState({
+            isLoaded: false
+        });
     }
 }
