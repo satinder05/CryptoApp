@@ -42,7 +42,7 @@ namespace WebApp.Service
             if (coin == null)
             {
                 _logger.LogWarning("Failed to save user preferred coin due to invalid coinId# {CoinId}", coinId);
-                throw new NotSupportedException("Coin Id not found");
+                throw new ArgumentException("Coin Id not valid");
             }
             var userPreference = await GetUserPreference();
             if (userPreference == null)

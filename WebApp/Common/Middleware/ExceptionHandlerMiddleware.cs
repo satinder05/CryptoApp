@@ -30,8 +30,6 @@ namespace WebApp.Common.Middleware
         {
             var code = HttpStatusCode.InternalServerError; // 500
 
-            if (ex is NotSupportedException) code = HttpStatusCode.NotFound;
-
             var result = JsonConvert.SerializeObject(new { error = ex.Message });
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;

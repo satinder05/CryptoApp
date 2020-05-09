@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq;
+using System;
 using System.Threading.Tasks;
 using WebApp.Controllers;
 using WebApp.Service;
@@ -24,6 +25,15 @@ namespace WebApp.UnitTests.Service
             //Assert
             Assert.IsType<int>(result);
             Assert.NotEqual(0, result);
+        }
+
+        [Fact]
+        public async Task SavePreferredCoin_GivenInValidCoinId_ShouldThrowException()
+        {
+            int coinId = 10;
+            var service = new UserPreferenceService(_context, _logger);
+
+            await Assert.ThrowsAsync<ArgumentException>(() => service.SavePreferredCoin(coinId));
         }
     }
 }
