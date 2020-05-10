@@ -12,6 +12,7 @@ export class PreferredCoin extends Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.reloadTradeData = this.reloadTradeData.bind(this);
 
         this.getTradeData = this.getTradeData.bind(this);
         this.getPreferredCoin = this.getPreferredCoin.bind(this);
@@ -25,6 +26,12 @@ export class PreferredCoin extends Component {
         event.preventDefault();
         this.clearTradeData();
         this.savePreferredCoin(parseInt(this.state.preferredCoin))
+    }
+
+    reloadTradeData(event) {
+        event.preventDefault();
+        this.clearTradeData();
+        this.getTradeData();
     }
 
     componentWillMount() {
@@ -58,6 +65,7 @@ export class PreferredCoin extends Component {
                 </form>
                 <hr />
                 {tradeContent}
+                <button onClick={this.reloadTradeData}>Reload Trade Data</button>
             </div>
             );
     }
